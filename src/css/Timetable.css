@@ -18,7 +18,7 @@
   font-weight: bold;
 }
 .day-label {
-  padding: 0 6px;
+  padding: 0 7px;
   grid-row-start: 1;
 }
 .hour-label {

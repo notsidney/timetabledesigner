@@ -187,7 +187,7 @@ class Timetable extends React.PureComponent {
     });
     // Render timetable
     return(
-      <div className="Timetable">
+      <div className="Timetable" id="Timetable">
         {hourLabels}
         {dayLabels}
         {events}

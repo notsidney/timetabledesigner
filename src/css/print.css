@@ -48,10 +48,10 @@
     grid-row-gap: .5mm;
   }
   .day-label {
-    padding: 0 2mm;
+    padding: 0 3mm;
   }
   .hour-label {
-    padding: 1.67mm 0;
+    padding: 1.5mm 0;
   }
   .hour-label::before {
     height: .5mm;
@@ -60,7 +60,7 @@
     top: -.5mm;
   }
   .Event {
-    padding: 1.5mm 2mm;
+    padding: 1.5mm 2.5mm;
 
     border-radius: 1mm;
   }
