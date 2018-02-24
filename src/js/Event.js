@@ -22,11 +22,20 @@ class Event extends React.PureComponent {
     if (this.props.removed) extraClasses += ' removed';
 
     let extraEditables = [];
-    if (this.props.exceptions.length > 0) extraEditables.push(
-      <Editable className="event-exceptions" initial={
-        'Except Wk ' + this.props.exceptions.toString()
-      } />
-    );
+    if (this.props.exceptions.length > 0) {
+      extraEditables.push(
+        // If first element of array is Only
+        this.props.exceptions[0] === 'Only' ?
+          <Editable className="event-exceptions" initial={
+            'Only Wk ' + this.props.exceptions[1].toString()
+          } />
+        :
+        // Else, write Except
+          <Editable className="event-exceptions" initial={
+            'Except Wk ' + this.props.exceptions.toString()
+          } />
+      );
+    }
 
     return(
       <div

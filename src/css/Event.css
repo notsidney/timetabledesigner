@@ -11,7 +11,7 @@
   font-feature-settings: 'lnum';
 }
 .Event.overlap {
-  margin-left: 20px;
+  margin-right: 30px;
   opacity: .75;
 }
 
