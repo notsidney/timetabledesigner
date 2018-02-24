@@ -2,8 +2,12 @@ import axios from 'axios';
 import moment from 'moment';
 
 function getIcs(url) {
+  // Route through CORS proxy
+  // const corsProxy = 'https://cors-anywhere.herokuapp.com/';
+  const corsProxy = '';
+
   return new Promise((resolve, reject) => {
-    axios.get('https://cors-anywhere.herokuapp.com/' + url)
+    axios.get(corsProxy + url)
       .then(response => {
         // Find first and last events
         let start = response.data.indexOf('BEGIN:VEVENT');
@@ -30,8 +34,8 @@ function parseEvents(eventArray) {
         'unit': '',
         'type': '',
         'day': -1,
-        'start': '',
-        'end': '',
+        'start': -1,
+        'end': -1,
         'location': ''
       };
       let dtStart;
@@ -47,20 +51,18 @@ function parseEvents(eventArray) {
         else if (item.indexOf('DTSTART') > -1) {
           dtStart = moment(item.substr(-16), 'YYYYMMDD-HHmmss');
           outItem.day = dtStart.isoWeekday();
-          outItem.start = dtStart.format('HH:mm');
+          outItem.start = dtStart.hour();
         }
         // End time line
         else if (item.indexOf('DTEND') > -1) {
           dtEnd = moment(item.substr(-16), 'YYYYMMDD-HHmmss');
-          outItem.end = dtEnd.format('HH:mm');
+          outItem.end = dtEnd.hour();
         }
         // Location line
         else if (item.indexOf('LOCATION') > -1) {
           outItem.location = item.slice(item.indexOf(':') + 1);
         }
       });
-      // Get duration
-      outItem.duration = dtEnd.diff(dtStart, 'hours', true);
       // Get week
       let weekNum = dtStart.isoWeek();
       // Make a unique key
@@ -77,6 +79,20 @@ function parseEvents(eventArray) {
         outItem.weeks = [weekNum];
         // Add event to output
         output.push(outItem);
+      }
+    }
+  });
+  // Check for overlaps
+  let startTimes = new Set();
+  // Use set to check for duplicates
+  output.forEach(item => {
+    for (let i = 0; i < item.end - item.start; i++) {
+      let startTime = `${item.day} ${item.start + i}`;
+      if (startTimes.has(startTime)) {
+        item.overlap = true;
+      }
+      else {
+        startTimes.add(startTime);
       }
     }
   });

@@ -1,0 +1,44 @@
+.Timetable {
+  width: 100%;
+
+  margin-top: 18px;
+  flex: 1;
+
+  display: grid;
+  grid-template-columns: 36px;
+  grid-template-rows: 24px;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-column-gap: 6px;
+  grid-row-gap: 1px;
+}
+
+.day-label,
+.hour-label {
+  font-weight: bold;
+}
+.day-label {
+  padding: 0 6px;
+  grid-row-start: 1;
+}
+.hour-label {
+  padding: 5px 0;
+  grid-column-start: 1;
+
+  position: relative;
+}
+.hour-label::before {
+  height: 1px;
+  width: 818px;
+
+  display: block;
+  position: absolute;
+  top: -1px;
+
+  content: '';
+  background: var(--gridline-color);
+}
+
+.removed {
+  display: none;
+}

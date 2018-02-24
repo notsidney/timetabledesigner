@@ -1,0 +1,32 @@
+button {
+  padding: 0;
+
+  background-color: var(--paper-color);
+  border: none;
+  border-radius: var(--border-radius);
+
+  transition: box-shadow .2s;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+button.remove {
+  width: 20px;
+  height: 20px;
+
+  background-color: rgba(0,0,0,.75);
+  color: var(--paper-color);
+  box-shadow: none;
+  border-radius: 50%;
+}
+button.remove:focus {
+  outline: none;
+  
+  box-shadow: var(--focus);
+}
+.Event button.remove {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}

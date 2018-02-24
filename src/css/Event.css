@@ -1,0 +1,36 @@
+.Event {
+  padding: 5px 6px;
+
+  position: relative;
+
+  background-color: #808080;
+  color: var(--paper-color);
+  border-radius: var(--border-radius);
+
+  overflow: hidden;
+  font-feature-settings: 'lnum';
+}
+.Event.overlap {
+  margin-left: 20px;
+  opacity: .75;
+}
+
+.event-unit {
+  font-size: 19.5px;
+  font-weight: bold;
+  line-height: 19.5px;
+}
+.event-location {
+  display: none;
+}
+
+.Event.unit-0 { background-color: #ff3b30; }
+.Event.unit-1 { background-color: #ff9500; }
+.Event.unit-2 { background-color: #ffcc00; }
+.Event.unit-3 { background-color: #4cd964; }
+.Event.unit-4 { background-color: #5ac8fa; }
+.Event.unit-5 { background-color: #007aff; }
+.Event.unit-6 { background-color: #7856D6; }
+.Event.unit-7 { background-color: pink; }
+.Event.unit-8 { background-color: brown; }
+.Event.unit-9 { background-color: grey; }

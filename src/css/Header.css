@@ -1,0 +1,23 @@
+.Header {
+  flex: none;
+
+  display: flex;
+}
+
+.Header .Editable {
+  width: 100px;
+  margin: 0;
+
+  flex: 2;
+
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.Header .Editable:last-of-type {
+  margin-left: 10px;
+
+  flex: 1;
+
+  text-align: right;
+}

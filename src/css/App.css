@@ -1,0 +1,29 @@
+.App {
+  min-width: 1150px;
+  padding: 10px 10px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.paper {
+  width: 890px;
+  height: 630px;
+
+  padding: 24px 36px 36px;
+
+  flex: none;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--paper-color);
+  box-shadow: 0 20px 40px rgba(0,0,0,.25);
+
+  font-size: 13px;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+}

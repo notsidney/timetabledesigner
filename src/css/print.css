@@ -1,0 +1,74 @@
+@media print {
+  @page {
+    margin: 0;
+  }
+
+  .Controls,
+  button.remove {
+    display: none;
+  }
+
+  .App {
+    min-width: 0;
+
+    display: block;
+
+    padding: 0;
+  }
+
+  .paper {
+    width: 297mm;
+    height: 210mm;
+
+    margin: 0;
+    padding: 8.23mm 12mm 12mm;
+
+    box-shadow: none;
+
+    font-size: 12pt;
+  }
+
+  .Editable {
+    background-color: transparent;
+  }
+
+  .Header .Editable {
+    font-size: 46pt;
+  }
+  .Header .Editable:last-of-type {
+    margin-left: 0;
+  }
+
+  .Timetable {
+    margin-top: 6mm;
+
+    grid-template-columns: 12mm;
+    grid-template-rows: 6mm;
+    grid-column-gap: 2mm;
+    grid-row-gap: .5mm;
+  }
+  .day-label {
+    padding: 0 2mm;
+  }
+  .hour-label {
+    padding: 1.67mm 0;
+  }
+  .hour-label::before {
+    height: .5mm;
+    width: 273mm;
+
+    top: -.5mm;
+  }
+  .Event {
+    padding: 1.5mm 2mm;
+
+    border-radius: 1mm;
+  }
+  .Event.overlap {
+    display: none;
+  }
+  .event-unit {
+    font-size: 18pt;
+    line-height: 18pt;
+  }
+}
