@@ -34,7 +34,6 @@ class App extends React.Component {
   }
 
   importWeeks(start, end, breaks) {
-    console.log('importWeeks');
     // Get weeks and store in State
     const weekOutput = getSessionWeeks(start, end, breaks);
     this.setState({

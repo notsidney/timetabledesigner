@@ -62,7 +62,7 @@ class Controls extends React.PureComponent {
   changeColour(colour, index) {
     let newColours = this.state.unitColours;
     newColours[index] = colour;
-    this.setState({newColours});
+    this.setState({unitColours: [...newColours]});
   }
 
   render() {
