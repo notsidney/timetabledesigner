@@ -7,7 +7,7 @@ class Controls extends React.PureComponent {
     super(props);
 
     this.state = {
-      timetableUrl: 'https://www.timetable.usyd.edu.au/personaltimetable/timetable/calendar/480344700/uazpIQY7XfuprNC8TsIhH6i5UB4NdmDJcCA2wexKHIz/timetable.ics',
+      timetableUrl: '',
       unitColours: [
         '#ff3b30',
         '#ff9500',
