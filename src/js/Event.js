@@ -23,16 +23,17 @@ class Event extends React.PureComponent {
 
     let extraEditables = [];
     if (this.props.exceptions.length > 0) {
+      console.log(this.props.exceptions);
       extraEditables.push(
         // If first element of array is Only
         this.props.exceptions[0] === 'Only' ?
           <Editable className="event-exceptions" initial={
-            'Only Wk ' + this.props.exceptions[1].toString()
+            'Only Wk ' + this.props.exceptions[1]
           } />
         :
         // Else, write Except
           <Editable className="event-exceptions" initial={
-            'Except Wk ' + this.props.exceptions.toString()
+            'Except Wk ' + this.props.exceptions
           } />
       );
     }

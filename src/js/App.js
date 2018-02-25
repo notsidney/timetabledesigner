@@ -19,6 +19,7 @@ class App extends React.Component {
 
     this.importTimetable = this.importTimetable.bind(this);
     this.importWeeks = this.importWeeks.bind(this);
+    this.unhide = this.unhide.bind(this);
   }
 
   importTimetable(url) {
@@ -32,26 +33,34 @@ class App extends React.Component {
     });
   }
 
-  importWeeks() {
+  importWeeks(start, end, breaks) {
+    console.log('importWeeks');
     // Get weeks and store in State
-    const weekOutput = getSessionWeeks('2018-03-05', '2018-06-08', '2018-04-02');
+    const weekOutput = getSessionWeeks(start, end, breaks);
     this.setState({
       weekMap: weekOutput.weekMap,
       weekCount: weekOutput.weekCount
     });
   }
 
+  unhide() {
+    this.timetable.setState({removed: [], removedDays: [], removedHours: []});
+  }
+
   render() {
     return (
       <div className="App">
         <Controls
-          importTimetable={this.importTimetable}
           units={this.state.units}
+          importTimetable={this.importTimetable}
+          importWeeks={this.importWeeks}
+          unhide={this.unhide}
         />
         <div className="paper">
           <Header />
           {(this.state.data.length > 0 && !this.state.loading) ?
             <Timetable
+              ref={timetable => this.timetable = timetable}
               data={this.state.data}
               units={this.state.units}
               weekMap={this.state.weekMap}

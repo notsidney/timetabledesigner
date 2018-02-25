@@ -24,14 +24,6 @@
   display: none;
 }
 
-.Event.unit-0 { background-color: #ff3b30; }
-.Event.unit-1 { background-color: #ff9500; }
-.Event.unit-2 { background-color: #ffcc00; }
-.Event.unit-3 { background-color: #4cd964; }
-.Event.unit-4 { background-color: #5ac8fa; }
-.Event.unit-5 { background-color: #007aff; }
-.Event.unit-6 { background-color: #7856D6; }
-
 .Event.unit-0 { background-color: var(--unit-0); }
 .Event.unit-1 { background-color: var(--unit-1); }
 .Event.unit-2 { background-color: var(--unit-2); }

@@ -171,7 +171,7 @@ class Timetable extends React.PureComponent {
           type={item.type}
           exceptions={
             // Check if session weeks are in props
-            (this.props.weeksMap) ?
+            (this.props.weekMap) ?
               // If the event is recurring
               (item.weeks.length > 1) ?
                 // Create an array from weekMap and use Array.map() to create a
