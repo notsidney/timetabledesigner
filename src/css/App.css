@@ -1,5 +1,5 @@
 .App {
-  min-width: 1150px;
+  min-width: 1170px;
   padding: 10px 10px 20px;
 
   display: flex;
@@ -26,4 +26,7 @@
   font-size: 13px;
   text-rendering: optimizeLegibility;
   font-kerning: normal;
+}
+.paper.loading {
+  opacity: .5;
 }

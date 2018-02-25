@@ -31,6 +31,11 @@
 .Event.unit-4 { background-color: #5ac8fa; }
 .Event.unit-5 { background-color: #007aff; }
 .Event.unit-6 { background-color: #7856D6; }
-.Event.unit-7 { background-color: pink; }
-.Event.unit-8 { background-color: brown; }
-.Event.unit-9 { background-color: grey; }
+
+.Event.unit-0 { background-color: var(--unit-0); }
+.Event.unit-1 { background-color: var(--unit-1); }
+.Event.unit-2 { background-color: var(--unit-2); }
+.Event.unit-3 { background-color: var(--unit-3); }
+.Event.unit-4 { background-color: var(--unit-4); }
+.Event.unit-5 { background-color: var(--unit-5); }
+.Event.unit-6 { background-color: var(--unit-6); }

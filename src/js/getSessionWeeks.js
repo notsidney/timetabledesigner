@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-function weeks(startDay, endDay, breakDays) {
+function getSessionWeeks(startDay, endDay, breakDays) {
   // Get ISO week numbers
   const startWeek = moment(startDay).isoWeek();
   const endWeek = moment(endDay).isoWeek();
@@ -36,4 +36,4 @@ function weeks(startDay, endDay, breakDays) {
   return {weekMap: weekMap, weekCount: count};
 }
 
-export { weeks };
+export { getSessionWeeks };

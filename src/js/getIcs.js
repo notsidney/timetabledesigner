@@ -1,13 +1,17 @@
 import axios from 'axios';
 import moment from 'moment';
 
-function getIcs(url) {
+function getIcs(url, component) {
   // Route through CORS proxy
-  // const corsProxy = 'https://cors-anywhere.herokuapp.com/';
-  const corsProxy = '';
+  const corsProxy = 'https://cors-anywhere.herokuapp.com/';
 
   return new Promise((resolve, reject) => {
-    axios.get(corsProxy + url)
+    axios.get(corsProxy + url, {
+        // Send loading to App state
+        onDownloadProgress: progressEvent => {
+          component.setState({loading: true});
+        }
+      })
       .then(response => {
         // Find first and last events
         let start = response.data.indexOf('BEGIN:VEVENT');
@@ -16,6 +20,8 @@ function getIcs(url) {
         let trimmed = response.data.slice(start, end).replace('END:VEVENT', '');
         // Split each event into separate array items & make sure no empty strings
         let eventArray = trimmed.split('BEGIN:VEVENT').filter(item => item);
+        // Remove loading
+        component.setState({loading: false});
         // Parse string
         resolve(parseEvents(eventArray));
       })

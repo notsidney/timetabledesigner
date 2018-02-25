@@ -170,19 +170,22 @@ class Timetable extends React.PureComponent {
           unit={item.unit}
           type={item.type}
           exceptions={
-            // If the event is recurring
-            (item.weeks.length > 1) ?
-              // Create an array from weekMap and use Array.map() to create a
-              // new array from it
-              Array.from(this.props.weekMap).map(week => {
-                // Only add to new array if it's not in item.weeks and not Break
-                if (item.weeks.indexOf(week[0]) === -1 && week[1] !== 'Break')
-                  return week[1];
-              })
-              // Then, filter out null items
-              .filter(item => item)
-            :
-              ['Only', this.props.weekMap.get(item.weeks[0])]
+            // Check if session weeks are in props
+            (this.props.weeksMap) ?
+              // If the event is recurring
+              (item.weeks.length > 1) ?
+                // Create an array from weekMap and use Array.map() to create a
+                // new array from it
+                Array.from(this.props.weekMap).map(week => {
+                  // Only add to new array if it's not in item.weeks and not Break
+                  if (item.weeks.indexOf(week[0]) === -1 && week[1] !== 'Break')
+                    return week[1];
+                })
+                // Then, filter out null items
+                .filter(item => item)
+              :
+                ['Only', this.props.weekMap.get(item.weeks[0])]
+            : []
           }
           location={item.location}
           remove={this.remove}

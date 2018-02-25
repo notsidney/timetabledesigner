@@ -5,7 +5,7 @@ import '../css/Placeholder.css';
 const Placeholder = (props) => {
   return(
     <div className="Placeholder">
-      Import a timetable to get started
+      {props.loading ? 'Loading timetable…' : 'Import a timetable to get started'}
     </div>
   );
 }

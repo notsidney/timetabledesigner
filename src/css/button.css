@@ -1,24 +1,16 @@
-button {
-  padding: 0;
-
-  background-color: var(--paper-color);
-  border: none;
-  border-radius: var(--border-radius);
-
-  transition: box-shadow .2s;
-
-  cursor: pointer;
-  user-select: none;
-}
-
 button.remove {
   width: 20px;
   height: 20px;
 
+  padding: 0;
+
   background-color: rgba(0,0,0,.75);
   color: var(--paper-color);
-  box-shadow: none;
+  border: none;
   border-radius: 50%;
+
+  cursor: pointer;
+  user-select: none;
 }
 button.remove:focus {
   outline: none;
