@@ -8,6 +8,7 @@ class Controls extends React.PureComponent {
 
     this.state = {
       timetableUrl: '',
+      fonts: '',
       unitColours: [
         '#ff3b30',
         '#ff9500',
@@ -91,6 +92,22 @@ class Controls extends React.PureComponent {
             type="text"
             value={this.state.timetableUrl}
             onChange={e => this.setState({timetableUrl: e.target.value})}
+          />
+          <input type="Submit" value="Import" />
+        </form>
+
+        <h2>Custom Fonts</h2>
+        <form
+          className="custom-fonts"
+          onSubmit={e => {
+            this.props.customFonts(this.state.fonts);
+            e.preventDefault();
+          }}
+        >
+          <input
+            type="text"
+            value={this.state.fonts}
+            onChange={e => this.setState({fonts: e.target.value})}
           />
           <input type="Submit" value="Import" />
         </form>
