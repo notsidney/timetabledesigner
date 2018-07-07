@@ -6,7 +6,7 @@ const Editable = props => {
   return(
     <div
       className={'Editable ' + props.className}
-      //contentEditable
+      contentEditable
     >
       {props.initial}
     </div>

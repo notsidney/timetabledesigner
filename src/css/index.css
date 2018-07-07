@@ -24,7 +24,9 @@
 }
 
 html,
-body {
+body,
+#root,
+.App {
   height: 100%;
 }
 
@@ -39,7 +41,7 @@ body,
 input,
 button,
 select {
-  font-family: Brown, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
   Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
   font-size: var(--text-size);
