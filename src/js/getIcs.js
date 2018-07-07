@@ -4,14 +4,13 @@ import moment from 'moment';
 function getIcs(url, component) {
   // Route through CORS proxy
   const corsProxy = 'https://cors-anywhere.herokuapp.com/';
+  // Change HTTPS to HTTP
+  const newUrl = url.replace('https', 'http');
+
+  component.setState({loading: true});
 
   return new Promise((resolve, reject) => {
-    axios.get(corsProxy + url, {
-        // Send loading to App state
-        onDownloadProgress: progressEvent => {
-          component.setState({loading: true});
-        }
-      })
+    axios.get(corsProxy + newUrl)
       .then(response => {
         // Find first and last events
         let start = response.data.indexOf('BEGIN:VEVENT');
