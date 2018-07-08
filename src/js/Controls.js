@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Checkbox from './Checkbox';
+
 import '../css/Controls.css';
 
 class Controls extends React.PureComponent {
@@ -17,46 +19,50 @@ class Controls extends React.PureComponent {
         '#5ac8fa',
         '#007aff',
         '#7856d6'
-      ]
+      ],
+      display: {
+        unit: true,
+        type: true,
+        weeks: false,
+        location: true,
+        grid: false
+      }
     }
 
     this.weeksPreset = this.weeksPreset.bind(this);
     this.changeColour = this.changeColour.bind(this);
+    this.display = this.display.bind(this);
   }
 
   weeksPreset(preset) {
+    let startDate = null;
+    let endDate = null;
+    let breakDate = null;
+
     switch (preset) {
       case 'usyd-1-2018':
-        this.setState({
-          startDate: '2018-03-05',
-          endDate: '2018-06-08',
-          breakDate: '2018-04-02'
-        });
-        break;
+        startDate = '2018-03-05';
+        endDate = '2018-06-08';
+        breakDate = '2018-04-02';
 
       case 'usyd-2-2018':
-        this.setState({
-          startDate: '2018-07-30',
-          endDate: '2018-11-02',
-          breakDate: '2018-09-24'
-        });
-        break;
+        startDate = '2018-07-30';
+        endDate = '2018-11-02';
+        breakDate = '2018-09-24';
 
       case 'usyd-1-2019':
-        this.setState({
-          startDate: '2019-02-25',
-          endDate: '2019-05-31',
-          breakDate: '2019-04-22'
-        });
-        break;
+        startDate = '2019-02-25';
+        endDate = '2019-05-31';
+        breakDate = '2019-04-22';
 
       case 'usyd-2-2019':
-        this.setState({
-          startDate: '2019-08-05',
-          endDate: '2019-11-08',
-          breakDate: '2019-09-30'
-        });
-        break;
+        startDate = '2019-08-05';
+        endDate = '2019-11-08';
+        breakDate = '2019-09-30';
+    }
+
+    if (startDate && endDate && breakDate) {
+      this.setState({ startDate, endDate, breakDate });
     }
   }
 
@@ -66,14 +72,28 @@ class Controls extends React.PureComponent {
     this.setState({unitColours: [...newColours]});
   }
 
+  display(what) {
+    const display = {...this.state.display};
+    display[what] = !display[what];
+    console.log(display);
+    this.setState({ display: display });
+  }
+
   render() {
     // Update custom colours
     document.getElementById('custom-colours').innerHTML =
-      `:root { ${
+      `
+      :root { ${
       this.state.unitColours.reduce((accumulator, currentVal, currentIndex) => 
         accumulator += '--unit-' + currentIndex + ': ' + currentVal + '; '
       , '')
-      } }`
+      } }
+      .event-unit { display: ${this.state.display.unit ? 'block' : 'none'} }
+      .event-type { display: ${this.state.display.type ? 'block' : 'none'} }
+      .event-exceptions { display: ${this.state.display.weeks ? 'block' : 'none'} }
+      .event-location { display: ${this.state.display.location ? 'block' : 'none'} }
+      .hour-label::before { display: ${this.state.display.grid ? 'block' : 'none'} }
+      `
     ;
 
     return(
@@ -126,6 +146,9 @@ class Controls extends React.PureComponent {
                       this.state.breakDate.split(',')
                     : this.state.breakDate
                   );
+                  this.setState({
+                    display: { ...this.state.display, weeks: true }
+                  });
                   e.preventDefault();
                 }}
               >
@@ -176,6 +199,13 @@ class Controls extends React.PureComponent {
                   )
                 })}
               </form>
+
+              <h2>Display</h2>
+              <Checkbox for="unit" value={this.state.display.unit} display={this.display} />
+              <Checkbox for="type" value={this.state.display.type} display={this.display} />
+              <Checkbox for="weeks" value={this.state.display.weeks} display={this.display} />
+              <Checkbox for="location" value={this.state.display.location} display={this.display} />
+              <Checkbox for="grid" value={this.state.display.grid} display={this.display} />
 
               <h2>Resets</h2>
               <button onClick={this.props.unhide}>Show all removed items</button>
