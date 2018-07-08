@@ -14,11 +14,11 @@ class Controls extends React.PureComponent {
       unitColours: [
         '#ff3b30',
         '#ff9500',
-        '#ffcc00',
         '#4cd964',
-        '#5ac8fa',
         '#007aff',
-        '#7856d6'
+        '#7856d6',
+        '#5ac8fa',
+        '#ffcc00'
       ],
       display: {
         unit: true,
