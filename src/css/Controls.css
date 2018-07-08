@@ -16,6 +16,10 @@ h1 {
   margin: 0 0 2px;
 }
 
+a {
+  color: #007aff;
+}
+
 h2 {
   font-size: 13px;
   text-transform: uppercase;
