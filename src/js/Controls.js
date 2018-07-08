@@ -213,14 +213,16 @@ class Controls extends React.PureComponent {
               </form>
 
               <h2>Display</h2>
-              <Checkbox for="unit" value={this.state.display.unit} display={this.display} />
-              <Checkbox for="type" value={this.state.display.type} display={this.display} />
-              <Checkbox for="weeks" value={this.state.display.weeks} display={this.display} />
-              <Checkbox for="location" value={this.state.display.location} display={this.display} />
-              <Checkbox for="grid" value={this.state.display.grid} display={this.display} />
+              <div className="checkboxes">
+                <Checkbox for="unit" value={this.state.display.unit} display={this.display} />
+                <Checkbox for="type" value={this.state.display.type} display={this.display} />
+                <Checkbox for="weeks" value={this.state.display.weeks} display={this.display} />
+                <Checkbox for="location" value={this.state.display.location} display={this.display} />
+                <Checkbox for="grid" value={this.state.display.grid} display={this.display} />
+              </div>
 
               <h2>Resets</h2>
-              <button onClick={this.props.unhide}>Show all removed items</button>
+              <button onClick={this.props.unhide}>Unhide all</button>
               <button onClick={e => {
                 Array.prototype.forEach.call(
                   document.getElementById('Timetable')

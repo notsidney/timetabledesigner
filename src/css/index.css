@@ -1,11 +1,13 @@
 :root {
   font-size: 14px;
 
-  --background-color: #f5f5f5;
+  --background-color: #333;
+  --accent-color: #5ac8fa;
+  --controls-text-color: #ddd;
+
   --paper-color: #fff;
   --text-color: #000;
   --gridline-color: rgba(0,0,0,.15);
-  --accent-color: #08c;
 
   --editable-color: rgba(0,0,0,.15);
   --focus: 0 0 0 1px #000, 0 0 0 4px rgba(0,0,0,.5);

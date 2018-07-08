@@ -4,6 +4,7 @@
   padding: 10px 10px 20px;
 
   display: flex;
+  align-items: center;
   justify-content: center;
 
   overflow: hidden;
@@ -16,7 +17,6 @@
   padding: 24px 36px 36px;
 
   flex: none;
-  align-self: center;
 
   display: flex;
   flex-direction: column;

@@ -1,8 +1,10 @@
 .Controls {
   width: 240px;
-  min-height: 630px;
+  min-height: 700px;
 
   margin-right: 20px;
+
+  color: var(--controls-text-color);
 
   flex: none;
 
@@ -12,19 +14,31 @@
 
 h1 {
   font-size: 24px;
+  color: var(--paper-color);
 
   margin: 0 0 2px;
 }
 
 a {
-  color: #007aff;
+  color: var(--accent-color);
 }
 
 h2 {
   font-size: 13px;
   text-transform: uppercase;
+  color: var(--paper-color);
 
   margin: 15px 0 3px;
+}
+
+input[type=text],
+input[type=submit],
+select,
+button {
+  font-size: 13px;
+}
+input[type=submit] {
+  -webkit-appearance: button;
 }
 
 form {
@@ -56,4 +70,9 @@ form.import-weeks input[type=submit] {
 form.unit-colours {
   display: grid;
   grid-template-columns: 50px 1fr;
+}
+
+div.checkboxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
