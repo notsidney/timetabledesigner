@@ -28,12 +28,9 @@ class Timetable extends React.PureComponent {
       [7, 'Sun']
     ]);
 
-    this.createDayLabels = this.createDayLabels.bind(this);
-    this.createHourLabels = this.createHourLabels.bind(this);
     this.remove = this.remove.bind(this);
     this.removeDay = this.removeDay.bind(this);
     this.removeHour = this.removeHour.bind(this);
-    this.unhide = this.unhide.bind(this);
   }
 
   // Create day and hour labels for the first time
@@ -111,16 +108,51 @@ class Timetable extends React.PureComponent {
   remove(index) {
     this.setState({ removed: [...this.state.removed, index] });
   }
-  removeDay(index) {
-    this.setState({ removedDays: [...this.state.removedDays, index] });
+  removeDay(index, num) {
+    // Check if minDay was removed
+    if (num === this.state.minDay) {
+      // Create a new map that reduces the number of columns
+      const newDaysMap = new Map();
+      this.state.daysMap.forEach((value, key, map) => {
+        newDaysMap.set(key, value - 1);
+      });
+      this.setState((prevState) => {
+        return {
+          removedDays: [...this.state.removedDays, index],
+          daysMap: newDaysMap,
+          minDay: prevState.minDay + 1
+        };
+      });
+    } else {
+      this.setState({ removedDays: [...this.state.removedDays, index] });
+    }
   }
-  removeHour(index) {
-    this.setState({ removedHours: [...this.state.removedHours, index] });
+  removeHour(index, num) {
+    // Check if minHour was removed
+    if (num === this.state.minHour) {
+      // Create a new map that reduces the number of rows
+      const newHoursMap = new Map();
+      this.state.hoursMap.forEach((value, key, map) => {
+        newHoursMap.set(key, value - 1);
+      });
+      this.setState((prevState) => {
+        return {
+          removedHours: [...this.state.removedHours, index],
+          hoursMap: newHoursMap,
+          minHour: prevState.minHour + 1
+        };
+      });
+    } else {
+      this.setState({ removedHours: [...this.state.removedHours, index] });
+    }
   }
 
-  // Unhide all
   unhide() {
-    this.setState({ removed: [], removedDays: [], removedHours: [] })
+    // Recreate day and hour labels
+    this.createDayLabels();
+    this.createHourLabels();
+    // Reset arrays
+    this.setState({removed: [], removedDays: [], removedHours: []});
   }
 
   render() {
@@ -130,6 +162,7 @@ class Timetable extends React.PureComponent {
         <Label
           key={index}
           index={index}
+          num={item}
           className="day-label"
           style={{gridColumnStart: this.state.daysMap.get(item)}}
           label={this.dayNames.get(item)}
@@ -145,6 +178,7 @@ class Timetable extends React.PureComponent {
         <Label
           key={index}
           index={index}
+          num={item}
           className="hour-label"
           style={{gridRowStart: this.state.hoursMap.get(item)}}
           label={out + ':00'}

@@ -52,7 +52,7 @@ class App extends React.Component {
   }
 
   unhide() {
-    this.timetable.setState({removed: [], removedDays: [], removedHours: []});
+    this.timetable.unhide();
   }
 
   render() {

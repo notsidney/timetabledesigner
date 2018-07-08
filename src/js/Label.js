@@ -10,7 +10,7 @@ class Label extends React.PureComponent {
   }
 
   handleClick() {
-    this.props.remove(this.props.index);
+    this.props.remove(this.props.index, this.props.num);
   }
 
   render() {
