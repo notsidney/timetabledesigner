@@ -18,7 +18,6 @@ class App extends React.Component {
     this.state = {data: []};
 
     this.importTimetable = this.importTimetable.bind(this);
-    this.customFonts = this.customFonts.bind(this);
     this.importWeeks = this.importWeeks.bind(this);
     this.unhide = this.unhide.bind(this);
   }
@@ -32,14 +31,6 @@ class App extends React.Component {
       // Store in state and make units an array
       this.setState({data: data, units: [...units]})
     });
-  }
-
-  customFonts(fonts) {
-    document.getElementById('custom-fonts-stylesheet').innerHTML = `
-      body, input, button, select {
-        font-family: ${fonts};
-      }
-    `;
   }
 
   importWeeks(start, end, breaks) {
@@ -61,7 +52,6 @@ class App extends React.Component {
         <Controls
           units={this.state.units}
           importTimetable={this.importTimetable}
-          customFonts={this.customFonts}
           importWeeks={this.importWeeks}
           unhide={this.unhide}
         />

@@ -81,13 +81,14 @@ class Controls extends React.PureComponent {
 
   render() {
     // Update custom colours
-    document.getElementById('custom-colours').innerHTML =
+    document.getElementById('custom-css').innerHTML =
       `
       :root { ${
       this.state.unitColours.reduce((accumulator, currentVal, currentIndex) => 
         accumulator += '--unit-' + currentIndex + ': ' + currentVal + '; '
       , '')
       } }
+      .paper { font-family: ${this.state.fonts} }
       .event-unit { display: ${this.state.display.unit ? 'block' : 'none'} }
       .event-type { display: ${this.state.display.type ? 'block' : 'none'} }
       .event-exceptions { display: ${this.state.display.weeks ? 'block' : 'none'} }
@@ -135,15 +136,11 @@ class Controls extends React.PureComponent {
         <form
           className="custom-fonts"
           onSubmit={e => {
-            this.props.customFonts(this.state.fonts);
+            this.setState({ fonts: e.target.elements.fonts.value });
             e.preventDefault();
           }}
         >
-          <input
-            type="text"
-            value={this.state.fonts}
-            onChange={e => this.setState({fonts: e.target.value})}
-          />
+          <input type="text" name="fonts" />
           <input type="Submit" value="Import" />
         </form>
 
