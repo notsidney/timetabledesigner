@@ -99,6 +99,21 @@ class Controls extends React.PureComponent {
     return(
       <div className="Controls">
         <h1>Timetable Designer</h1>
+        by&nbsp;
+        <a
+          href="https://github.com/notseenee/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Sidney&nbsp;Alcantara
+        </a>&nbsp;|&nbsp;
+        <a
+          href="https://github.com/notseenee/timetabledesigner/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Source&nbsp;code
+        </a>
 
         <h2>Import timetable</h2>
         <form

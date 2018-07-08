@@ -20,6 +20,17 @@
   line-height: 19.5px;
 }
 
+.Event button.remove {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s;
+}
+.Event:hover button.remove,
+.Event:active button.remove {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .Event.unit-0 { background-color: var(--unit-0); }
 .Event.unit-1 { background-color: var(--unit-1); }
 .Event.unit-2 { background-color: var(--unit-2); }

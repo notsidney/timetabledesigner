@@ -45,7 +45,7 @@
     grid-template-columns: 12mm;
     grid-template-rows: 6mm;
     grid-column-gap: 2mm;
-    grid-row-gap: .5mm;
+    grid-row-gap: .25mm;
   }
   .day-label {
     padding: 0 3mm;
@@ -54,7 +54,7 @@
     padding: 1.5mm 0;
   }
   .hour-label::before {
-    height: .5mm;
+    height: .25mm;
     width: 273mm;
 
     top: -.5mm;
