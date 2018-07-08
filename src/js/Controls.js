@@ -44,21 +44,26 @@ class Controls extends React.PureComponent {
         startDate = '2018-03-05';
         endDate = '2018-06-08';
         breakDate = '2018-04-02';
-
+        break;
       case 'usyd-2-2018':
         startDate = '2018-07-30';
         endDate = '2018-11-02';
         breakDate = '2018-09-24';
-
+        break;
       case 'usyd-1-2019':
         startDate = '2019-02-25';
         endDate = '2019-05-31';
         breakDate = '2019-04-22';
-
+        break;
       case 'usyd-2-2019':
         startDate = '2019-08-05';
         endDate = '2019-11-08';
         breakDate = '2019-09-30';
+        break;
+      default:
+        startDate = null;
+        endDate = null;
+        breakDate = null;
     }
 
     if (startDate && endDate && breakDate) {
