@@ -1,5 +1,5 @@
 # [Timetable Designer](https://timetabledesigner.netlify.com/)
-A single-page React web app that designs a printable poster of your timetable.
+A single-page React web app that designs a printable poster of your timetable. **Works best on Google Chrome.**
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
