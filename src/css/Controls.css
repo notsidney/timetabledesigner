@@ -1,6 +1,6 @@
 .Controls {
   width: 240px;
-  min-height: 620px;
+  min-height: 640px;
 
   margin-right: 20px;
 
@@ -40,6 +40,9 @@ button {
 input[type=submit] {
   -webkit-appearance: button;
 }
+input[type=color] {
+  height: 18px;
+}
 
 form {
   display: flex;
@@ -72,7 +75,11 @@ form.unit-colours {
   grid-template-columns: 50px 1fr;
 }
 
-div.checkboxes {
+div.checkboxes-3col {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+}
+div.checkboxes-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }

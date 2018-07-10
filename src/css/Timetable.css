@@ -1,7 +1,6 @@
 .Timetable {
   width: 100%;
 
-  margin-top: 18px;
   flex: 1;
 
   display: grid;
@@ -37,6 +36,20 @@
 
   content: '';
   background: var(--gridline-color);
+}
+
+.day-label button.remove,
+.hour-label button.remove {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s;
+}
+.day-label:hover button.remove,
+.day-label:active button.remove,
+.hour-label:hover button.remove,
+.hour-label:active button.remove {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .removed {

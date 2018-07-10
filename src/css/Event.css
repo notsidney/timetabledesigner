@@ -12,6 +12,8 @@
 .Event.overlap {
   margin-right: 30px;
   opacity: .75;
+
+  box-shadow: var(--overlap-shadow);
 }
 
 .event-unit {
@@ -38,3 +40,21 @@
 .Event.unit-4 { background-color: var(--unit-4); }
 .Event.unit-5 { background-color: var(--unit-5); }
 .Event.unit-6 { background-color: var(--unit-6); }
+
+.style-outlined .Event {
+  border: 1px solid;
+  background-color: var(--paper-color);
+}
+.style-outlined .Event.unit-0 { color: var(--unit-0); }
+.style-outlined .Event.unit-1 { color: var(--unit-1); }
+.style-outlined .Event.unit-2 { color: var(--unit-2); }
+.style-outlined .Event.unit-3 { color: var(--unit-3); }
+.style-outlined .Event.unit-4 { color: var(--unit-4); }
+.style-outlined .Event.unit-5 { color: var(--unit-5); }
+.style-outlined .Event.unit-6 { color: var(--unit-6); }
+
+.style-monochrome .Event { background-color: var(--text-color); }
+.style-outlined.style-monochrome .Event {
+  background-color: var(--paper-color);
+  color: var(--text-color);
+}

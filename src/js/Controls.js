@@ -21,17 +21,24 @@ class Controls extends React.PureComponent {
         '#ffcc00'
       ],
       display: {
+        header: true,
         unit: true,
         type: true,
         weeks: false,
         location: true,
         grid: false
+      },
+      disableWeeksCheckbox: true,
+      style: {
+        outlined: false,
+        monochrome: false
       }
     }
 
     this.weeksPreset = this.weeksPreset.bind(this);
     this.changeColour = this.changeColour.bind(this);
     this.display = this.display.bind(this);
+    this.style = this.style.bind(this);
   }
 
   weeksPreset(preset) {
@@ -80,8 +87,13 @@ class Controls extends React.PureComponent {
   display(what) {
     const display = {...this.state.display};
     display[what] = !display[what];
-    console.log(display);
     this.setState({ display: display });
+  }
+
+  style(what) {
+    const style = {...this.state.style};
+    style[what] = !style[what];
+    this.setState({ style: style });
   }
 
   render() {
@@ -94,6 +106,7 @@ class Controls extends React.PureComponent {
       , '')
       } }
       .paper { font-family: ${this.state.fonts} }
+      .Header { display: ${this.state.display.header ? 'flex' : 'none'} }
       .event-unit { display: ${this.state.display.unit ? 'block' : 'none'} }
       .event-type { display: ${this.state.display.type ? 'block' : 'none'} }
       .event-exceptions { display: ${this.state.display.weeks ? 'block' : 'none'} }
@@ -101,6 +114,10 @@ class Controls extends React.PureComponent {
       .hour-label::before { display: ${this.state.display.grid ? 'block' : 'none'} }
       `
     ;
+    const bodyClasses = [];
+    if (this.state.style.outlined) bodyClasses.push('style-outlined');
+    if (this.state.style.monochrome) bodyClasses.push('style-monochrome');
+    document.body.classList = bodyClasses.join(' ');
 
     return(
       <div className="Controls">
@@ -164,7 +181,8 @@ class Controls extends React.PureComponent {
                     : this.state.breakDate
                   );
                   this.setState({
-                    display: { ...this.state.display, weeks: true }
+                    display: { ...this.state.display, weeks: true },
+                    disableWeeksCheckbox: false
                   });
                   e.preventDefault();
                 }}
@@ -218,12 +236,19 @@ class Controls extends React.PureComponent {
               </form>
 
               <h2>Display</h2>
-              <div className="checkboxes">
-                <Checkbox for="unit" value={this.state.display.unit} display={this.display} />
-                <Checkbox for="type" value={this.state.display.type} display={this.display} />
-                <Checkbox for="weeks" value={this.state.display.weeks} display={this.display} />
-                <Checkbox for="location" value={this.state.display.location} display={this.display} />
-                <Checkbox for="grid" value={this.state.display.grid} display={this.display} />
+              <div className="checkboxes-3col">
+                <Checkbox for="header" value={this.state.display.header} callback={this.display} />
+                <Checkbox for="unit" value={this.state.display.unit} callback={this.display} />
+                <Checkbox for="type" value={this.state.display.type} callback={this.display} />
+                <Checkbox for="weeks" value={this.state.display.weeks} callback={this.display} disabled={this.state.disableWeeksCheckbox} />
+                <Checkbox for="location" value={this.state.display.location} callback={this.display} />
+                <Checkbox for="grid" value={this.state.display.grid} callback={this.display} />
+              </div>
+
+              <h2>Style</h2>
+              <div className="checkboxes-2col">
+                <Checkbox for="outlined" value={this.state.style.outlined} callback={this.style} />
+                <Checkbox for="monochrome" value={this.state.style.monochrome} callback={this.style} />
               </div>
 
               <h2>Resets</h2>

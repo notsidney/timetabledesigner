@@ -6,11 +6,13 @@
   --controls-text-color: #ddd;
 
   --paper-color: #fff;
+  --paper-shadow: 0 20px 40px rgba(0,0,0,.25);
   --text-color: #000;
   --gridline-color: rgba(0,0,0,.15);
 
   --editable-color: rgba(0,0,0,.15);
   --focus: 0 0 0 1px #000, 0 0 0 4px rgba(0,0,0,.5);
+  --overlap-shadow: 0 2px 4px rgba(0,0,0,.25), 0 2px 40px rgba(0,0,0,.75);
 
   --border-radius: 3px;
 

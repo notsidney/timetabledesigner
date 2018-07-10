@@ -5,14 +5,18 @@
   appearance: none;
   border: none;
   border-radius: var(--border-radius);
-  background-color: var(--editable-color);
+  background-color: transparent;
 
-  transition: box-shadow .2s;
+  transition: box-shadow .2s, background-color .2s;
+}
+.Editable:hover {
+  background-color: var(--editable-color);
 }
 .Editable:focus {
   outline: none;
 
   box-shadow: var(--focus);
+  background-color: var(--editable-color);
 }
 
 .Editable::selection {

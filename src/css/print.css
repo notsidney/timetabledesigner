@@ -32,6 +32,9 @@
     background-color: transparent;
   }
 
+  .Header {
+    margin-bottom: 6mm;
+  }
   .Header .Editable {
     font-size: 46pt;
   }
@@ -40,8 +43,6 @@
   }
 
   .Timetable {
-    margin-top: 6mm;
-
     grid-template-columns: 12mm;
     grid-template-rows: 6mm;
     grid-column-gap: 2mm;
@@ -63,6 +64,9 @@
     padding: 1.5mm 2.5mm;
 
     border-radius: 1mm;
+  }
+  .style-outline .Event {
+    border-width: .5mm;
   }
   .Event.overlap {
     display: none;

@@ -8,7 +8,8 @@ const Checkbox = (props) => {
         id={`display-${props.for}`}
         name={`display-${props.for}`}
         checked={props.value}
-        onChange={() => props.display(props.for)}
+        onChange={() => props.callback(props.for)}
+        disabled={props.disabled}
       />
       <label for={`display-${props.for}`}>
         {props.for.charAt(0).toUpperCase() + props.for.slice(1)}
